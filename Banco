@@ -1,0 +1,151 @@
+import javax.swing.JOptionPane;
+import java.util.Scanner;
+public class Banco 
+{
+    public static void main(String[] args) 
+    	{
+    		JOptionPane.showMessageDialog(null,"BIENVENIDO AL BANCO PRO");
+    		boolean salir = false;
+    		boolean entrar = false;
+    		while(!salir)
+    		{
+   				String weekDay = JOptionPane.showInputDialog("Ingresar una opcion:\n 1.-EMPLEADOS\n 2.-TIPOS DE CUENTAS\n 3.-CLIENTES\n 4.- SALIR");
+				{
+					switch (weekDay.toUpperCase()) 
+					{
+						case "1":
+						{
+							String weekDays = JOptionPane.showInputDialog("Ingresa opcion\n 1.- Empleado de ventanilla\n 2.-Empleado asesor\n 3.-Empleado intendencia");
+							switch (weekDays.toUpperCase())
+							{ 
+								case "1":
+								{
+									System.out.println("Empleado de Ventanilla");
+       					 			Empleado miEmpleado = new Empleado("Azael",20,"20148",17456,8000);
+        							System.out.println("El nombre es: " + miEmpleado.getNombre());
+        							System.out.println("Edad: " + miEmpleado.getEdad() + " años");
+        							System.out.println("RFC: HESA" + miEmpleado.getRfc());
+        							System.out.println("ID de empleado: " + miEmpleado.getId());
+        							System.out.println("CURP del empleado: HESA000120HPLRNZA7");
+        							System.out.println("Salario del empleado:" + miEmpleado.getSalario()+".00$");
+        							break;
+								}
+								case "2":
+								{
+									System.out.println("Empleado Asesor");
+       					 			Asesor miAsesor = new Asesor("Yonatha",20,"20148",17456,10000);
+        							System.out.println("El nombre es: " + miAsesor.getNombre());
+        							System.out.println("Edad: " + miAsesor.getEdad() + " años");
+        							System.out.println("RFC: YONA" + miAsesor.getRfc());
+        							System.out.println("ID de empleado: " + miAsesor.getId());
+        							System.out.println("CURP del empleado YONA141854894");
+        							System.out.println("Salario del empleado:" + miAsesor.getSalario()+".00$");
+        							break;	
+								}
+								case "3":
+								{
+									System.out.println("Empleado Asesor");
+       					 			Intendencia miIntendencia = new Intendencia("Yonatha",45,"20635548",17456,6000);
+        							System.out.println("El nombre es: " + miIntendencia.getNombre());
+        							System.out.println("Edad: " + miIntendencia.getEdad() + " años");
+        							System.out.println("RFC: YONA" + miIntendencia.getRfc());
+        							System.out.println("ID de empleado: " + miIntendencia.getId());
+        							System.out.println("CURP del empleado YONA009009");
+        							System.out.println("Salario del empleado:" + miIntendencia.getSalario()+".00$");
+        							break;		
+								}				
+        					}        				
+        					break;
+						}
+						case "2":
+						{
+							JOptionPane.showMessageDialog(null,"TIPOS DE CUENTAS:\n CHEQUES.\n NOMINA.\n CREDITO.");	
+						}
+						break;
+						case "3":
+						{
+							String weekD = JOptionPane.showInputDialog("Eres cliente\n 1.- SI\n 2.-NO");
+							switch (weekD.toUpperCase())
+								{
+									case "1":
+									JOptionPane.showInputDialog("Deme Numero de Cliente");
+									String weekDa = JOptionPane.showInputDialog("Que opereacion desea realizar?\n 1.- Depositar\n 2.-Retirar\n 3.-Consultar\n");
+									switch (weekDa.toUpperCase())
+									{
+										case "1":
+										{
+											double totalCuenta;
+        									Cuenta Cuenta1;
+        									Cuenta1 = new Cuenta(11111, 2500.70);
+        									totalCuenta = Cuenta1.saldo();
+        									System.out.println("Cliente ");
+        									System.out.println("Nombre: Azael");
+        									System.out.println("Edad: 20 años");
+        									System.out.println("Total actual en la cuenta: " + totalCuenta + " $");
+        									Scanner scanner = new Scanner (System.in);
+        									System.out.println("Cuanto desea depositar a su cuenta");
+        									double ingreso = scanner.nextDouble();
+        									System.out.println("Se ingresan en la cuenta: " + ingreso + " $");
+        									Cuenta1.depositar(ingreso);      
+		        							System.out.println("-------------------------------------------------");
+		        							totalCuenta = Cuenta1.saldo();
+		        							System.out.println("Total actual en la cuenta: " + totalCuenta + " $"); 
+        									break;
+										}
+										case"2":
+										{
+        									double totalCuenta;
+        									Cuenta Cuenta2;
+        									Cuenta2 = new Cuenta(11111, 2500.70);
+        									totalCuenta = Cuenta2.saldo();
+        									System.out.println("Cliente ");
+        									System.out.println("Nombre: Azael");
+        									System.out.println("Edad: 20 años");
+        									System.out.println("Total actual en la cuenta: " + totalCuenta + " $");
+        									Scanner scanner = new Scanner (System.in);
+        									System.out.println("Cuanto desea retirar de su cuenta");
+        									double ingreso = scanner.nextDouble();
+        									System.out.println("Se ingresan en la cuenta: " + ingreso + " $");
+        									Cuenta2.retirar(ingreso);      
+		        							System.out.println("-------------------------------------------------");
+		        							totalCuenta = Cuenta2.saldo();
+		        							System.out.println("Total actual en la cuenta: " + totalCuenta + " $"); 
+        									break;	
+										}
+										case"3":
+										{
+											double totalCuenta;
+        									Cuenta Cuenta3;
+        									Cuenta3 = new Cuenta(11111, 2500.00);
+        									totalCuenta = Cuenta3.saldo();
+        									System.out.println("Cliente ");
+        									System.out.println("Nombre: Azael");
+        									System.out.println("Edad: 20 años");
+        									System.out.println("Total actual en la cuenta: " + totalCuenta + " $");      				  
+		        							System.out.println("-------------------------------------------------");
+        									break;	
+										}		
+									}
+									break;		
+									case "2":
+									{
+										JOptionPane.showMessageDialog(null,"Se iniciara su registro");
+										Cliente Cliente1= new Cliente();
+										Cliente1.registrar();	
+										break;
+									}	
+								}
+							}
+							case "4":
+							{
+								JOptionPane.showMessageDialog(null,"Gracias por su consulta");
+								salir=true;
+                   				break;
+							}
+						}
+					}
+    					            
+    			}
+    	}	
+}
+
